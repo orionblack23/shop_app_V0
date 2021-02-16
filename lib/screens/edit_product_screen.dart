@@ -17,6 +17,7 @@ class _EditProductScreenState extends State<EditProductScreen> {
   var _editedProduct = Product(
     id: '',
     title: '',
+    description: '',
     price: 0,
     imageUrl: '',
   );
