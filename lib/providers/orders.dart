@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
-import 'package:shop_app_v0/widgets/order_item.dart';
+//import 'package:shop_app_v0/widgets/order_item.dart';
 
 import './cart.dart';
 
