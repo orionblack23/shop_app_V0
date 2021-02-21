@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shop_app_v0/providers/product.dart';
 
 import './screens/edit_product_screen.dart';
 import './screens/user_products_screen.dart';
@@ -28,6 +27,7 @@ class MyApp extends StatelessWidget {
           //value: Products(),
           update: (ctx, auth, previousProducts) => Products(
             auth.token,
+            auth.userId,
             previousProducts == null ? [] : previousProducts.items,
           ),
           create: null,
@@ -36,9 +36,13 @@ class MyApp extends StatelessWidget {
           //value: Cart(),
           create: (ctx) => Cart(),
         ),
-        ChangeNotifierProvider(
+        ChangeNotifierProxyProvider<Auth, Orders>(
           //value: Cart(),
-          create: (ctx) => Orders(),
+          update: (ctx, auth, previousOrders) => Orders(
+            auth.token,
+            previousOrders == null ? [] : previousOrders.orders,
+          ),
+          create: null,
         ),
       ],
       child: Consumer<Auth>(
